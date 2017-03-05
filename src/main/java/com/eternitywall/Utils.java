@@ -38,6 +38,8 @@ public class Utils {
 
         //Java 8 (even more secure):
         byte[] bytes = new byte[length];
+        // Warning, this can be very slow on linux systems, check https://stackoverflow.com/questions/137212/how-to-solve-performance-problem-with-java-securerandom
+        // Suggested workaround is to use: -Djava.security.egd=file:/dev/./urandom
         SecureRandom.getInstanceStrong().nextBytes(bytes);
 
         return bytes;
